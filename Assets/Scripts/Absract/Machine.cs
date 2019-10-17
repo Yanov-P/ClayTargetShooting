@@ -19,6 +19,7 @@ namespace ClayTargetShooting
                 GameObject target = objectPooler.GetPooledObject();
                 target.transform.position = _CTHelpers.transform.GetChild(i).position;
                 target.transform.rotation = _CTHelpers.transform.GetChild(i).rotation;
+                target.GetComponent<Rigidbody>().isKinematic = true;
                 target.SetActive(true);
             }
         }
@@ -40,7 +41,7 @@ namespace ClayTargetShooting
                 target.transform.rotation = _targetStart.transform.rotation;
                 target.SetActive(true);
                 target.GetComponent<Rigidbody>().isKinematic = false;
-                target.GetComponent<Rigidbody>().AddForce(_targetStart.transform.forward * 10);
+                target.GetComponent<Rigidbody>().AddForce(_targetStart.transform.forward * 400);
             }
         }
     }
