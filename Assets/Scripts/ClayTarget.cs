@@ -7,10 +7,20 @@ namespace ClayTargetShooting
     {
         [SerializeField]
         private GameObject _explodedTargetPrefab;
-        public override void Explode()
+        private GameObject _explodedTarget;
+        public delegate void ClayTargetBroken(bool byPlayer);
+        public static event ClayTargetBroken OnTargetBroken;
+
+    public override void Explode()
         {
-            var et = Instantiate(_explodedTargetPrefab, transform.position, transform.rotation);
+            var _explodedTarget = Instantiate(_explodedTargetPrefab, transform.position, transform.rotation);
+            OnTargetBroken(true);
+            Invoke("DestroyExploded", 3);
             gameObject.SetActive(false);
+        }
+
+        private void DestroyExploded() {
+            Destroy(_explodedTarget);
         }
     }
 }
