@@ -1,34 +1,43 @@
 fileFormatVersion: 2
-guid: 7e4f30488a432be4f9600a214e183569
+guid: 1ef63902565970d4cbd2bf49352c7719
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: -467656080916181218
+    second: Launch
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CTMBasePod
-    second: {fileID: 2100000, guid: 00c1dbb18ffc6c64784f862db6b763ba, type: 2}
+    second: {fileID: 2100000, guid: c32581b40c6bd604cbfde24b4e33895b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CTMGlass
-    second: {fileID: 2100000, guid: 8848617eed630d648bc15ab0c98348a5, type: 2}
+    second: {fileID: 2100000, guid: 0a6baa7599b8d0f42b3572743d7fe08f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CTMMain
-    second: {fileID: 2100000, guid: df865442d4b0724489afaa513496c73c, type: 2}
+    second: {fileID: 2100000, guid: a1a3093709405c345bc7804022476e4a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CTMPod
-    second: {fileID: 2100000, guid: 36f118c8f061b4e4db6f992406f1fb6f, type: 2}
+    second: {fileID: 2100000, guid: 84ee4ff5836d1014d9574ae4148cae27, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CTMTop
-    second: {fileID: 2100000, guid: 2a89f58753e5aff428900d4911fb8dbc, type: 2}
+    second: {fileID: 2100000, guid: 1206f40f7e1097c4d910c0d19dd0e704, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -55,7 +64,65 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      internalID: -3100369314251171874
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Launch
+      takeName: Take 001
+      internalID: -467656080916181218
+      firstFrame: 30
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -112,7 +179,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

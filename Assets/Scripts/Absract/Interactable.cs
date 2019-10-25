@@ -5,6 +5,7 @@ namespace ClayTargetShooting
     public abstract class Interactable : MonoBehaviour
     {
         public bool Selected { get; private set; } = false;
+        
 
         public abstract void Interact();
         

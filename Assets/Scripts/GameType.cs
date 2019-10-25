@@ -13,5 +13,7 @@ namespace ClayTargetShooting
         public int _maxAmmo = -1;
         public int _maxScore = -1;
         public int _maxTime = -1;
+        public int _record = -1;
+        public int _lastTry = -1;
     }
 }
