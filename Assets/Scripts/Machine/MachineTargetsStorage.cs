@@ -30,7 +30,6 @@ public class MachineTargetsStorage : MonoBehaviour
     }
 
     public void Next() {
-        Debug.Log("next");
         _storedTargets[_currNum].SetActive(false);
         _currNum--;
         if (_currNum < 0) {

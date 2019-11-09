@@ -43,6 +43,7 @@ namespace ClayTargetShooting
         }
 
         public void Click() {
+            Debug.Log("Click");
             if (_interactable != null)
             {
                 if (_interactable is BaseWeapon)
@@ -106,12 +107,14 @@ namespace ClayTargetShooting
             if (_weaponInHand is Remington)
             {
                 (_weaponInHand as Remington)._shootEvent.AddListener(_gameManager.PlayerAmmoHandler);
+                (_weaponInHand as Remington)._reloadEvent.AddListener(_gameManager.PlayerReloadHandler);
                 (_weaponInHand as Remington).PickedUp();
             }
 
         }
 
         public void Aim() {
+            Debug.Log("Aim");
             GetComponent<Animator>().SetTrigger("Aim");
         }
 

@@ -20,6 +20,8 @@ public class Remington : BaseWeapon
         private Outline _outline;
         public class ShootEvent : UnityEvent<int,int> { };
         public ShootEvent _shootEvent = new ShootEvent();
+        public class ReloadEvent : UnityEvent<int, int> { };
+        public ReloadEvent _reloadEvent = new ReloadEvent();
 
         void Awake() {
             _layer_mask = LayerMask.GetMask("Target");
@@ -56,16 +58,17 @@ public class Remington : BaseWeapon
         {
             //GetComponent<Rigidbody>().isKinematic = false;
             GetComponent<BoxCollider>().enabled = true;
+            _animator.SetTrigger("Placed");
         }
 
         public override void Reload()
         {
-            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ReloadStart") || _animator.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
             {
                 _animator.SetTrigger("EndReload");
                 return;
             }
-            if (_bulletsInMagasine < _maxBulletsInMagasine)
+            if (_bulletsInMagasine < _maxBulletsInMagasine && (_animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot") || _animator.GetCurrentAnimatorStateInfo(0).IsName("IdleAnimation")))
             {
                 _animator.SetTrigger("Reload");
             }
@@ -77,6 +80,7 @@ public class Remington : BaseWeapon
         }
         public void ShellEntered() {
             _bulletsInMagasine++;
+            _reloadEvent.Invoke(_bulletsInMagasine, _maxBulletsInMagasine);
             if (_bulletsInMagasine >= _maxBulletsInMagasine) {
                 _animator.SetTrigger("EndReload");
             }

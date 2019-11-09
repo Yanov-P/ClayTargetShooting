@@ -13,19 +13,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject _testPanel;
     [SerializeField]
-    private Text _brokenText;
+    private CounterUI _counterUI;
     [SerializeField]
-    private Text _byPlayerText;
+    private TimerUI _timerUI;
     [SerializeField]
-    private Text _currentAmmo;
-    [SerializeField]
-    private Text _maxAmmo;
-    [SerializeField]
-    private Text _maxAmmoForGame;
+    private AmmoUI _ammoUI;
     [SerializeField]
     private Text _finishScore;
-    [SerializeField]
-    private Text _timer;
     [SerializeField]
     private GamemodeSwitcher _gamemodeSwitcher;
     [SerializeField]
@@ -50,8 +44,7 @@ public class UIController : MonoBehaviour
     }
 
     public void UpdateScore(int broken, int byPlayer) {
-        _brokenText.text = broken.ToString();
-        _byPlayerText.text = byPlayer.ToString();
+        _counterUI.DisplayScore(byPlayer);
     }
 
     internal void FinishGame(int currentScore, int bestScore) {
@@ -61,13 +54,12 @@ public class UIController : MonoBehaviour
 
     internal void HandlePlayerAmmo(int ammo, int maxAmmoInMagazine, int maxAmmo)
     {
-        _currentAmmo.text = ammo.ToString();
-        _maxAmmo.text = maxAmmoInMagazine.ToString();
-        _maxAmmoForGame.text = maxAmmo.ToString();
+        _ammoUI.DisplayAmmoInMagazine(ammo);
+        _ammoUI.DisplayAmmo(maxAmmo);
     }
 
     public void ShowTimer(int time) {
-        _timer.text = time.ToString();
+        _timerUI.DisplayTime(time);
     }
 
     public void UpdateRecords() {

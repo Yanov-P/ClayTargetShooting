@@ -35,12 +35,14 @@ namespace ClayTargetShooting
             }
         }
 
-        void OnEnable() {
+        void OnEnable()
+        {
             GetComponent<Collider>().enabled = true;
         }
 
-        private void Break() {
-            
+        private void Break()
+        {
+
             gameObject.SetActive(false);
             GetComponent<Collider>().enabled = false;
             if(_explodedTarget != null) Destroy(_explodedTarget);

@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     private int _comboToSlowMo;
 
     public void TargetBrokenHandler() {
-        //Debug.Log("Target broken");
+        GetComponent<AudioSource>().Play();
+        //Debug.Log("TargetBrokenHandler");
         _combo = 0;
         GetComponent<UIController>().EnableSlowMoButton(false);
         GetComponent<UIController>().UpdateCombo(_combo);
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     public void TargetBrokenByPlayer()
     {
+        GetComponent<AudioSource>().Play();
+        //Debug.Log("TargetBrokenByPlayer");
         _brokenTargetsByPlayerCount++;
         if (!GetComponent<SlowMotion>()._activated)
         {
@@ -53,13 +56,18 @@ public class GameManager : MonoBehaviour
     public void PlayerAmmoHandler(int ammo, int maxAmmoInMagazine)
     {
         _currentAmmoShot++;
-        Debug.Log("_currentAmmoShot " + _currentAmmoShot);
         if (_gameType._maxAmmo != -1 && _currentAmmoShot >= _gameType._maxAmmo) {
             if (_brokenTargetsByPlayerCount > _gameType._record) {
                 _gameType._record = _brokenTargetsByPlayerCount;
             }
             FinishGame(_brokenTargetsByPlayerCount, _gameType._record);
         }
+        
+        GetComponent<UIController>().HandlePlayerAmmo(ammo, maxAmmoInMagazine, _gameType._maxAmmo - _currentAmmoShot);
+    }
+
+    public void PlayerReloadHandler(int ammo, int maxAmmoInMagazine)
+    {
         
         GetComponent<UIController>().HandlePlayerAmmo(ammo, maxAmmoInMagazine, _gameType._maxAmmo - _currentAmmoShot);
     }
